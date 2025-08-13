@@ -1,0 +1,16 @@
+{
+  "name": "stripe-api-test-simulator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:ChhetriAshok/stripe-api-test-simulator.git",
+  "author": "<ashokchhetri1992@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "stripe": "^18.4.0",
+    "typescript": "^5.9.2"
+  },
+  "devDependencies": {
+    "@types/node": "^24.2.1",
+    "ts-node": "^10.9.1"
+  }
+}
