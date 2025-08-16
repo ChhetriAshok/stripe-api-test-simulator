@@ -8,6 +8,9 @@
   "scripts": {
     "build": "rm -rf ./lib/* && tsc"
   },
+  "files": [
+    "lib"
+  ],
   "dependencies": {
     "@ngneat/falso": "^8.0.2",
     "moment": "^2.30.1",
