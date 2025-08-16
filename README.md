@@ -14,6 +14,17 @@ A Node.js library to simulate Stripe API requests and responses for testing purp
 npm install stripe-api-test-simulator@latest
 ```
 
+🔑 Setup
+Add your Stripe test API key to .env:
+
+# .env
+
+STRIPE_API_KEY=sk_test...your_key_here...
+#just make sure that we are using the exact same key name
+
+Load it in your code (e.g., with dotenv):
+require("dotenv").config();
+
 ## Usage
 
 ```ts
