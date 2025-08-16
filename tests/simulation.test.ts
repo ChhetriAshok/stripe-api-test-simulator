@@ -11,9 +11,9 @@ test.describe("Simulation Tests", () => {
     test.setTimeout(120000);
     await runSimulationForExistingSubscription(
       "price_*****",
+      "sub_*****",
       31,
-      4,
-      "sub_*****"
+      4
     );
   });
 });

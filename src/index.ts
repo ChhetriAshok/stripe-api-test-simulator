@@ -34,9 +34,9 @@ export async function runSimulation(
 
 export async function runSimulationForExistingSubscription(
   productPriceId: string,
+  subscriptionId: string,
   advanceDays: number,
-  simulationCount: number,
-  subscriptionId: string
+  simulationCount: number
 ) {
   const simulationRunner = new SimulationRunner(simulationRoutes);
   await simulationRunner.createSimulation(
