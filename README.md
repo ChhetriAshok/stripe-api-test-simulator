@@ -5,23 +5,19 @@ A Node.js library to simulate Stripe API requests and responses for testing purp
 ## Features
 
 - Simulate Stripe API endpoints and responses
-- Customizable test data using [@ngneat/falso](https://github.com/ngneat/falso)
 - Built-in utilities for common Stripe objects
 - Easy integration with Playwright and other test frameworks
 
 ## Installation
 
 ```bash
-npm install stripe-api-test-simulator
+npm install stripe-api-test-simulator@latest
 ```
 
 ## Usage
 
 ```ts
-const {
-  runSimulation,
-  runSimulationForExistingSubscription,
-} = require("stripe-api-test-simulator");
+import { runSimulation, runSimulationForExistingSubscription } from "stripe-api-test-simulator";
 
 // Simulate a subscription
 await runSimulation("price_*****", 31, 4);
@@ -35,9 +31,31 @@ Here’s what it does:
 
 ## Functions
 
-- runSimulation(priceId, subscriptionCycleDays, sumulationCount) ` – Simulate a newly created subscription on stripe
+1. runSimulation(priceId, subscriptionCycleDays, simulationCount)
+   Purpose: Simulates a newly created subscription on Stripe.
 
-- runSimulationForExistingSubscription(priceId,subscriptionId, subscriptionCycleDays, sumulationCount) - is useful for testing how your system handles renewals, payments, and other events for subscriptions that already exist in Stripe, without making real API calls but we need to make sure test clock is already integrated on that subscription as stripe doesn't allow to update test clock on existing customer or subscription.
+When to use:
+
+- Testing subscription lifecycles from scratch (new customers, new subscriptions).
+- Useful for validating how your system handles initial setup and billing cycles.
+
+2. runSimulationForExistingSubscription(priceId, subscriptionId, subscriptionCycleDays, simulationCount)
+   Purpose: Simulates events for an already existing subscription in Stripe.
+
+When to use:
+
+Testing how your system handles renewals, payments, and other recurring events.
+
+Important Requirement:
+
+- The subscription must already have a test clock attached.
+- ⚠️ Stripe does not allow attaching a test clock to an existing customer or subscription later.
+- Make sure the test clock integration is set up at the time of subscription creation.
+
+👉 Summary:
+
+- Use runSimulation for new subscriptions.
+- Use runSimulationForExistingSubscription for renewals and recurring events, but only if a test clock was attached during creation.
 
 ## Contributing
 
