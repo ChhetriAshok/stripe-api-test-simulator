@@ -36,9 +36,8 @@ Here’s what it does:
 
 When to use:
 
-Testing subscription lifecycles from scratch (new customers, new subscriptions).
-
-Useful for validating how your system handles initial setup and billing cycles.
+- Testing subscription lifecycles from scratch (new customers, new subscriptions).
+- Useful for validating how your system handles initial setup and billing cycles.
 
 2. runSimulationForExistingSubscription(priceId, subscriptionId, subscriptionCycleDays, simulationCount)
    Purpose: Simulates events for an already existing subscription in Stripe.
@@ -49,17 +48,14 @@ Testing how your system handles renewals, payments, and other recurring events.
 
 Important Requirement:
 
-The subscription must already have a test clock attached.
-
-⚠️ Stripe does not allow attaching a test clock to an existing customer or subscription later.
-
-Make sure the test clock integration is set up at the time of subscription creation.
+- The subscription must already have a test clock attached.
+- ⚠️ Stripe does not allow attaching a test clock to an existing customer or subscription later.
+- Make sure the test clock integration is set up at the time of subscription creation.
 
 👉 Summary:
 
-Use runSimulation for new subscriptions.
-
-Use runSimulationForExistingSubscription for renewals and recurring events, but only if a test clock was attached during creation.
+- Use runSimulation for new subscriptions.
+- Use runSimulationForExistingSubscription for renewals and recurring events, but only if a test clock was attached during creation.
 
 ## Contributing
 
