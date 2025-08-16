@@ -53,13 +53,13 @@ export class SimulationRoutes {
         testClockId
       );
       while (response.status !== "ready") {
-        if (counter >= 10) {
+        if (counter >= 20) {
           throw new Error(
             `Test clock (${testClockId}) did not become ready in time`
           );
         }
         counter++;
-        await sleep(2);
+        await sleep(5);
         response = await this.stripeClient.testHelpers.testClocks.retrieve(
           testClockId
         );

@@ -37,6 +37,7 @@ export class SimulationRunner {
           "Subscription does not have a test clock associated with it"
         );
       clockId = subscription.testClockId;
+      subscriptionId = subscription.subscriptionId;
     }
     const invoice = await this.simulationRoutes.getInvoice(
       subscription.invoiceId as string
@@ -46,7 +47,7 @@ export class SimulationRunner {
     await this._advanceClock_FetchInvoice_Pay(
       clockId,
       subscription.customerId,
-      subscription.subscriptionId,
+      subscriptionId,
       advanceDays,
       simulationCount
     );
