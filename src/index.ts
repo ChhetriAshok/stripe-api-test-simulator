@@ -2,7 +2,11 @@ import { Stripe } from "stripe";
 import { config } from "./config";
 import { SimulationRoutes, SimulationRunner } from "./routes";
 
-const stripeClient = new Stripe(config.stripe.apiKey as string);
+if (!config.stripe.apiKey)
+  throw new Error(
+    "Missing Stripe API key, Please add STRIPE_API_KEY in your .env file"
+  );
+const stripeClient = new Stripe(config.stripe.apiKey);
 const simulationRoutes = new SimulationRoutes(stripeClient);
 
 /**
