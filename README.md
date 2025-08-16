@@ -19,7 +19,8 @@ Add your Stripe test API key to .env:
 
 # .env
 
-STRIPE*API_KEY=sk_test*...your_key_here...
+STRIPE_API_KEY=sk_test...your_key_here...
+#just make sure that we are using the exact same key name
 
 Load it in your code (e.g., with dotenv):
 require("dotenv").config();
